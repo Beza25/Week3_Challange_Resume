@@ -1,19 +1,16 @@
 package Week3_Challange;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
+
         //--------------------------------------ArrayLists-----------------------------
         ArrayList<String> Persons = new ArrayList<>();
-        ArrayList<Person> persons = new ArrayList<>();
         ArrayList<Education> educations = new ArrayList<>();
-        ArrayList<Skills> skills = new ArrayList<>();
-        ArrayList<WorkExperience> experiences = new ArrayList<>();
-        ArrayList<String> descriptions = new ArrayList<>();
+
         System.out.println("----------------------------------------------------------------------------------\n" +
                            "----------------------------------------------------------------------------------");
 
@@ -42,9 +39,11 @@ public class Main {
         sc.nextLine();
 
         for (Education education : educations) {
-            education = new Education();
+            education = new Education(degreeType, major, university ,graduationYear);
             Persons.add(education.toString());
         }
+
+
 
 
         //------------------------Work Experience-------------------------------
@@ -59,6 +58,13 @@ public class Main {
         String endDate = sc.nextLine();
         System.out.println("Enter the job description");
         String description = sc.nextLine();
+        for(int i=0; i<5 ; i++){
+            System.out.println("Enter another job description: (If you want to stop entering another description enter STOP");
+            description = sc.nextLine();
+            if(description.equalsIgnoreCase("stop")){
+                break;
+            }
+        }
         WorkExperience we1 = new WorkExperience(companyName,jobTitle,startDate,endDate,description);
         Persons.add(we1.toString());
 
@@ -82,37 +88,3 @@ public class Main {
     }
 }
 
-
-//         do {
-//             System.out.println("Enter the job description");
-//             String ds = sc.nextLine();
-//
-//             for (String description : descriptions) {
-//                 description = "- " + ds + "\n";
-//             }
-//         }while(descriptions.size() > 0);
-
-//  System.out.println("Enter your degreeType: [Associate's, Bachelor's, Master's, PhD, etc..]");
-//          while(!sc.hasNextLine()){
-//          System.out.println("Enter your degreeType: [Associate's, Bachelor's, Master's, PhD, etc..]");
-//          }
-//          String degreeType = sc.nextLine();
-//
-//          System.out.println("Enter your major: ");
-//          while(!sc.hasNextLine()){
-//          System.out.println("Enter your major: ");
-//          }
-//          String major = sc.nextLine();
-//
-//          System.out.println("Enter your university name: ");
-//          while(!sc.hasNextLine()){
-//          System.out.println("Enter your university name: ");
-//          }
-//          String university = sc.nextLine();
-//
-//          System.out.println("Enter your graduation year: ");
-//          while(!sc.hasNextInt()){
-//          System.out.println("Enter your graduation year: ");
-//          sc.next();
-//          }
-//          int graduationYear = sc.nextInt();
